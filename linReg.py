@@ -8,6 +8,7 @@ notas = np.array([2, 3, 3.5, 3.7, 4, 4.2, 4.5, 4.6, 4.8, 5], dtype='float16')
 
 # Выполняем линейную регрессию
 slope, intercept, r_value, p_value, std_err = linregress(horas_estudio, notas)
+
 """
 используем функцию `linregress` из `scipy.stats` для вычисления параметров линейной регрессии:
 уклона (slope), пересечения (intercept).
