@@ -2,11 +2,17 @@
 
 # Определяем функцию git_config_list, которая будет выполнять команду Git 
 # (нужно в консоль вывести результат работы команды git: git config --global --list)
+import subprocess
 def git_config_list():
-    pass
-    # Удаляем заглушку, создаем переменную result:
-    # Используем subprocess.run для выполнения команды в переменной result
-    # Выводим результат выполнения команды result.stdout
-    
+    """
+    Определяем функцию, которая будет выполнять команду Git: 
+    git config --global --list
+    """
+    result = subprocess.run(['git', 'config', '--global', '--list'], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
 
-# вызываем git_config_list()
+    if result.returncode == 0:
+        print(result.stdout)
+    else:
+        print("Error al ejecutar el comando:", result.stderr)
+
+git_config_list()
